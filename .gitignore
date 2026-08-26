@@ -1,0 +1,42 @@
+# ==========================================
+# JetBrains Rider / IntelliJ Common Exclusions
+# ==========================================
+.idea/
+# Comment the line above and uncomment the lines below if you want to share Rider tasks/scopes:
+# .idea/*
+# !.idea/scopes/
+# !.idea/tasks.xml
+
+# Rider specific user-specific project files
+*.sln.DotSettings.user
+
+# ==========================================
+# .NET / C# / F# (Build Outputs & Cache)
+# ==========================================
+bin/
+obj/
+[Bb]in/
+[Oo]bj/
+
+# Rider/MSBuild structured log files
+*.binlog
+
+# User-specific project settings
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# ==========================================
+# NuGet Packages & Local Caches
+# ==========================================
+*.nuget.props
+*.nuget.targets
+project.lock.json
+project.fragment.lock.json
+
+# ==========================================
+# Operating System Files
+# ==========================================
+.DS_Store
+Thumbs.db
