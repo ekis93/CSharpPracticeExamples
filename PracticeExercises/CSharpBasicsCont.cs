@@ -319,6 +319,22 @@ class CSharpBasicsCont()
         Console.WriteLine(naturalNumbers.Trim());
         
     }
-    //2. 
+    //2. Write a C# program to find the sum out of the first 10 natural numbers.
+    // Expected output:
+    // The first 10 natural number is :
+    // 1 2 3 4 5 6 7 8 9 10
+    // The Sum is : 55
+    public void FindNaturalSum()
+    {
+        int[] naturalNumbers = new int[10];
+        int sum = 0;
+        for (int i = 0; i <= 9; i++)
+        {
+            naturalNumbers[i] += i +1;
+        }
+        sum = naturalNumbers.Sum();
+        Console.Write($"The first 10 natural numbers are: {string.Join(" ", naturalNumbers)}." +
+                      $"\nThe sum is: {sum}");
+    }
     
 }
