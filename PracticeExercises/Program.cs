@@ -4,6 +4,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        CSharpBasics basics = new CSharpBasics();
+        CSharpBasicsCont basics = new CSharpBasicsCont();
+        basics.DisplayNaturalNumbers();
     }
 }
