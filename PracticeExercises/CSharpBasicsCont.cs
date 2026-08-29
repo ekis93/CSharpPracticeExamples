@@ -17,7 +17,7 @@ class CSharpBasicsCont()
         // Iteration statements run an instruction, or a block of instructions, multiple times.
 
 
-        // Iteration Statements
+    // Iteration Statements
         // while - Does something so long as a term is true.
         // do - Does something so long as a term is true, at least once.
         // for - Does something a specified number of times.
@@ -125,6 +125,7 @@ class CSharpBasicsCont()
         {
             Console.WriteLine(myCars[j]);
         }
+        //test
 
 
         // Iterate arrays - Foreach
@@ -285,20 +286,22 @@ class CSharpBasicsCont()
 
                     break;
                 case >= 500: //D
-                    numerals += "X";
+                    numerals += "D";
                     break;
                 case >= 100: //C
-                    numerals += "X";
+                    numerals += "C";
                     break;
                 case >= 50: //L
-                    numerals += "X";
+                    numerals += "L";
                     break;
                 case >= 10: //X
                     numerals += "X";
                     break;
                 case >= 5: //V
+                    numerals += "V";
                     break;
                 case >= 1: //I
+                    numerals += "I";
                     break;
             }
         }
@@ -309,32 +312,81 @@ class CSharpBasicsCont()
     // External Exercises: For Loop
     // See https://www.w3resource.com/csharp-exercises/for-loop/index.php#google_vignette
     //1. Write a program in C# to display the first 10 natural numbers.
-    public void DisplayNaturalNumbers()
+    public void DisplaynumbersArray()
     {
-        string naturalNumbers = "";
+        string numbersArray = "";
         for (int i = 1; i <= 10; i++)
         {
-            naturalNumbers += i + " ";
+            numbersArray += i + " ";
         }
-        Console.WriteLine(naturalNumbers.Trim());
+        Console.WriteLine(numbersArray.Trim());
         
     }
     //2. Write a C# program to find the sum out of the first 10 natural numbers.
-    // Expected output:
-    // The first 10 natural number is :
-    // 1 2 3 4 5 6 7 8 9 10
-    // The Sum is : 55
     public void FindNaturalSum()
     {
-        int[] naturalNumbers = new int[10];
+        // Expected output:
+        // The first 10 natural number is :
+        // 1 2 3 4 5 6 7 8 9 10
+        // The Sum is : 55
+        int[] numbersArray = new int[10];
         int sum = 0;
-        for (int i = 0; i <= 9; i++)
+        for (int i = 0; i < 10; i++)
         {
-            naturalNumbers[i] += i +1;
+            numbersArray[i] += i + 1;
         }
-        sum = naturalNumbers.Sum();
-        Console.Write($"The first 10 natural numbers are: {string.Join(" ", naturalNumbers)}." +
+        sum = numbersArray.Sum();
+        Console.Write($"The first 10 natural numbers are: {string.Join(" ", numbersArray)}." +
                       $"\nThe sum is: {sum}");
     }
-    
+    //3. Write a C# program that displays the sum of n natural numbers.
+    public void FindNaturalSumOfGivenNumbers(string n)
+    {
+        // Test Data : 7
+        // Expected Output :
+        // The first 7 natural number is :
+        // 1 2 3 4 5 6 7
+        // The Sum of Natural Number upto 7 terms : 28 
+        int givenNumber = Convert.ToInt32(n);
+        int[] numbersArray = new int[givenNumber]; 
+        
+        for (int i=0; i < givenNumber; i++)
+        {
+            numbersArray[i] += i + 1;
+        }
+        
+        string allNaturalGivenNumbers = string.Join(" ", numbersArray);
+        
+        Console.WriteLine($"The first {givenNumber} natural numbers are:\n{allNaturalGivenNumbers}.\n"+
+            $"The sum of all natural numbers up to {givenNumber} terms: {numbersArray.Sum()}");
+    }
+    //4. Write a C# program to read 10 numbers and find their average and sum.
+    public void FindAverageAndSum()
+    {
+        //their average and sum.
+        //Test Data :
+        //Input the 10 numbers :
+        //Number-1 :2
+        //...
+        //Number-10 :2
+        //Expected Output :
+        //The sum of 10 no is : 51
+        // The Average is : 5.100000
+
+        Console.WriteLine("Please provide n numbers separated by space:");
+        string[] separatedInput = Console.ReadLine().Split(' ');
+        int inputLength = separatedInput.Length;
+        double[] numbers = new double[inputLength];
+        
+        for(int i = 0; i<inputLength; i++)
+        {
+            numbers[i] = Convert.ToDouble(separatedInput[i]);
+        }
+
+        double sum = numbers.Sum();
+        double average = sum/inputLength;
+
+        Console.WriteLine($"\nThe sum of the {inputLength} numbers: {sum}"+
+            $"\nThe average: {average}");   
+    }
 }
