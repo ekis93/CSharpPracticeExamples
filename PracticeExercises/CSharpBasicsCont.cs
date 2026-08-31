@@ -415,4 +415,81 @@ class CSharpBasicsCont()
             Console.WriteLine($"Number is : {numberText} and cube of the {numberText} is :{number*number*number}");
         }
     }
+    //6. Write a program in C# to display the multiplication table of a given int.
+    public void DisplayMultiplicationTable()
+    {
+        //Test Data:
+        // Test Data :
+        // Input the number (Table to be calculated) : 15
+        // Expected Output :
+        // 15 X 1 = 15
+        //     ...
+        // ...
+        // 15 X 10 = 150
+        Console.WriteLine("Input the number (Table to be calculated):");
+        int userInputNumber = int.Parse(Console.ReadLine());
+        for (int i = 1; i <= 10; i++)
+        {
+            Console.WriteLine($"{userInputNumber} X {i} = {userInputNumber*i}");
+        }
+    }
+    //7. Write a program in C# to display the multiplication table vertically.
+    public void DisplayVerticalMultiTable()
+    {
+        // from 1 to n.
+        // Test Data :
+        // Input upto the table number starting from 1 : 8
+        // Expected Output :
+        // Multiplication table from 1 to 8
+        // 1x1 = 1, 2x1 = 2, 3x1 = 3, 4x1 = 4, 5x1 = 5, 6x1 = 6, 7x1 = 7, 8x1 = 8
+        //     ...
+        // 1x10 = 10, 2x10 = 20, 3x10 = 30, 4x10 = 40, 5x10 = 50, 6x10 = 60, 7x10 = 70, 8x10 = 80 
+        
+        //Notes. For every number the user gives, display each section of the table on its own line.
+        // If the user enters 1 2 3, the table should look as follows.
+        // 1x1=1, 2x1=1, 3x1=1
+        // 1x2=2, 2z2=4, 3x2=6
+        // etc.
+        Console.WriteLine("Input n numbers to the console (separated by whitespace):");
+        string[] userInput = Console.ReadLine().Split(' ');
+        string tableOutput = "";
+        int number = 0;
+        foreach (string numberText in userInput)
+        {
+            number = int.Parse(numberText);
+            for (int i = 1; i <= 10; i++)
+            {
+                tableOutput += $"{number}X{i} = {number * i}, ";
+            }
+            Console.WriteLine(tableOutput.TrimEnd(", "));
+            tableOutput = "";
+        }
+    }
+    //8. Write a C# program to display the n terms of odd natural numbers and their sums.
+    public void DisplayNatOddAndSum()
+    {
+        // Test Data
+        // Input number of terms : 10
+        // Expected Output :
+        // The odd numbers are :1 3 5 7 9 11 13 15 17 19
+        // The Sum of odd Natural Number upto 10 terms : 100 
+        Console.WriteLine("Input number of terms to the console (in the form of a single int):");
+        int userInput = int.Parse(Console.ReadLine());
+        string consoleOutput = "";
+        int sum = 0;
+        
+        /*Explanation for userInput*2
+        Every 2 consecutive numbers contain exactly 1 odd number.
+        To find N odd numbers, first you must search through the range of 2N total numbers.*/
+        for (int i = 1; i <= userInput*2; i++)
+        {
+            if (i % 2 != 0)
+            {
+                consoleOutput += $"{i} ";
+                sum += i;
+            }
+        }
+        Console.WriteLine($"The odd numbers are :{consoleOutput}");
+        Console.WriteLine($"The Sum of odd Natural Number upto 10 terms : {sum}");
+    }
 }
