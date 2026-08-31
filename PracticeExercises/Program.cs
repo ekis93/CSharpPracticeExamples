@@ -6,6 +6,6 @@ class Program
     static void Main(string[] args)
     {
         ExternalExercises external = new ExternalExercises();
-        external.DisplayRightAngleTriangle();
+        external.CopyArrayElements();
     }
 }

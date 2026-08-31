@@ -221,5 +221,84 @@ public class ExternalExercises
 
     // External Exercises: Arrays
     // See https://www.w3resource.com/csharp-exercises/array/index.php
-    // 1.
+    // 1. Write a C# program that stores elements in an array and prints them.
+    public void PrintArrayElements()
+    {
+        // Test Data:
+        // Input 10 elements in the array:
+        // element - 0 : 1
+        // element - 1 : 1
+        // element - 2 : 2
+        // .......
+        // Expected Output :
+        // Elements in array are: 1 1 2 3 4 5 6 7 8 9 
+        int[] myArray = {1,2,3,4,5,6,7,8,9,10};
+        Console.WriteLine("Elements in array are: " + string.Join(" ", myArray));
+    }
+    // 2. Write a C# Sharp program to read n values in an array and display them in reverse order.
+    public void PrintArrayReverse()
+    {
+        // Test Data :
+        // Input the number of elements to store in the array :3
+        // Input 3 number of elements in the array :
+        // element - 0 : 2
+        // element - 1 : 5
+        // element - 2 : 7
+        // Expected Output:
+        // The values store into the array are:
+        // 2 5 7
+        // The values store into the array in reverse are :
+        // 7 5 2 
+        int [] myArray = {2,5,7,3,9,10};
+        Console.WriteLine($"The values store into the array are:\n{string.Join(" ", myArray)}");
+        Console.WriteLine($"The values store into the array in reverse are :" +
+                          $"\n{string.Join(" ", myArray.Reverse())}\n");
+    }
+    // 3. Write a program in C# Sharp to find the sum of all array elements.
+    public void PrintArraySum()
+    {
+        // Test Data :
+        // Input the number of elements to be stored in the array :3
+        // Input 3 elements in the array :
+        // element - 0 : 2
+        // element - 1 : 5
+        // element - 2 : 8
+        // Expected Output :
+        // Sum of all elements stored in the array is : 15
+        int[] myArray = { 2, 4, 8 };
+        Console.WriteLine("Sum of all elements stored in the array is : "+myArray.Sum());
+        // or
+        int sum = 0;
+        foreach (int num in myArray)
+        {
+            sum += num;
+        }
+        Console.WriteLine("Sum of all elements stored in the array is : "+sum);
+    }
+    //4. Write a C# Sharp program to copy the elements of one array into another array. 
+    public void CopyArrayElements()
+    {
+        // Test Data :
+        // Input the number of elements to be stored in the array :3
+        // Input 3 elements in the array :
+        // element - 0 : 15
+        // element - 1 : 10
+        // element - 2 : 12
+        // Expected Output:
+        // The elements stored in the first array are :
+        // 15 10 12
+        // The elements copied into the second array are :
+        // 15 10 12 
+
+        int[] firstArray = { 2, 5, 6, 8 };
+        int[] secondArray = new int[10];
+        Console.WriteLine($"he elements stored in the first array are : {string.Join(" ", firstArray)}\n" +
+                          $"he elements stored in the second array are : {string.Join(" ", secondArray)}");
+        Console.WriteLine("Copying data from array 1 to array 2");
+        firstArray.CopyTo(secondArray, 0);
+        Console.WriteLine($"he elements stored in the first array are : {string.Join(" ", firstArray)}\n" +
+                          $"he elements stored in the second array are : {string.Join(" ", secondArray)}");
+        // Note that you can not copy data by doing secondArray = firstArray.
+        // This would overwrite the secondArray entirely instead of just copying over the index values.
+    }
 }
