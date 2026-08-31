@@ -5,7 +5,7 @@ class Program
 {
     static void Main(string[] args)
     {
-        CSharpBasicsCont basics = new CSharpBasicsCont();
-        basics.DisplayRightAngleTriangle();
+        ExternalExercises external = new ExternalExercises();
+        external.DisplayRightAngleTriangle();
     }
 }
