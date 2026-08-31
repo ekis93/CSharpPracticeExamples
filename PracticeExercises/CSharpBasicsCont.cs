@@ -312,7 +312,7 @@ class CSharpBasicsCont()
     // External Exercises: For Loop
     // See https://www.w3resource.com/csharp-exercises/for-loop/index.php#google_vignette
     //1. Write a program in C# to display the first 10 natural numbers.
-    public void DisplaynumbersArray()
+    public void DisplayNumbersArray()
     {
         string numbersArray = "";
         for (int i = 1; i <= 10; i++)
