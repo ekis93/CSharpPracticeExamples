@@ -492,4 +492,25 @@ class CSharpBasicsCont()
         Console.WriteLine($"The odd numbers are :{consoleOutput}");
         Console.WriteLine($"The Sum of odd Natural Number upto 10 terms : {sum}");
     }
+    //14. Write a program in C# Sharp to make such a pattern like a pyramid with an asterisk.
+    public void DisplayRightAngleTriangle()
+    {
+        // The pattern like:
+        //    *
+        //   * *
+        //  * * *
+        // * * * *
+        
+        string[] triangle = {"*","* *","* * *"};
+        int stepsToMove = triangle.Length;
+        for (int i = 0; i < triangle.Length; i++)
+        {
+            for (int j = 0; j < stepsToMove; j++)
+            {
+                triangle[i] = triangle[i].Insert(0, " ");
+            }
+            Console.WriteLine(triangle[i]);
+            stepsToMove--;
+        }
+    }
 }
