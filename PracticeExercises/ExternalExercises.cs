@@ -48,7 +48,7 @@ public class ExternalExercises
 
         for (int i = 0; i < givenNumber; i++)
         {
-            numbersArray[i] += i + 1;
+            numbersArray[i] = i + 1;
         }
 
         string allNaturalGivenNumbers = string.Join(" ", numbersArray);
