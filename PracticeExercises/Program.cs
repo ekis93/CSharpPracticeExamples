@@ -31,8 +31,6 @@ class Program
             "\nOr something else?");
         string userPhrase = word;
         Console.WriteLine("Hello "+word);
-        //
-
     }
 
 }
