@@ -31,11 +31,6 @@ class Program
             "\nOr something else?");
         string userPhrase = word;
         Console.WriteLine("Hello "+word);
-<<<<<<< HEAD
-        // Add test text
-=======
-        //
->>>>>>> refs/remotes/origin/main
     }
 
 }
