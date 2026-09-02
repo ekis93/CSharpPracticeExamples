@@ -11,28 +11,29 @@ public class CSharpMethodsAndGit
         int sum = num1 + num2;
         Console.WriteLine(sum);
     }
+
     //Create a method which takes in two numbers, multiplies them, and outputs the result.
     public void MultiplyTwoNumbers(int num1, int num2)
     {
         int product = num1 * num2;
         Console.WriteLine(product);
     }
-    
+
     // Exercise - Write out a hello phrase (Skriv ut en hälsningsfras):
     // Create and call a method writing out "Hello World!"
-    public void Greetings(string helloReplace ="Hello", string worldReplace="World")
+    public void Greetings(string helloReplace = "Hello", string worldReplace = "World")
     {
         //Step 1: Just write out hello world.
         Console.WriteLine($"Hello, World!\n");
-        
+
         // Step two: Modify the method so that the person calling it is able to send their own argument for
         // what should be written out instead of "World";
         Console.WriteLine($"Modified. Added the worldReplace parameter: \nHello, {worldReplace}!\n");
-        
+
         // Step three: Modify the method so the caller is also able to choose the greeting phrase.
-        Console.WriteLine($"Modified. Added both the worldReplace and heloReplace parameter: "+
+        Console.WriteLine($"Modified. Added both the worldReplace and heloReplace parameter: " +
                           $"\n{helloReplace}, {worldReplace}!\n");
-        
+
         // How to provide separate arguments for parameters:
         // When we call the function we can decide if we want to provide both parameters, or just one, with arguments.
         // To provide a single argument, specify the parameter by name, followed by a colon, followed by the argument:
@@ -41,11 +42,11 @@ public class CSharpMethodsAndGit
         // Or you can simply provide both arguments directly, separated by comma, in the order of declaration in the method:
         // Example: Greetings("Heya","Dude");
     }
-    
+
     //Exercise - Websitegenerator (Hemsidegenerator):
     // You have been assigned to standardize the creation of an HTML generator in C#.
-   
-    
+
+
     // Create methods to preform chosen parts of the creation of the following code:
     // <!DOCTYPE html>
     // <html>
@@ -57,12 +58,12 @@ public class CSharpMethodsAndGit
     // </main>
     // </body>
     // </html>
-    
-    
+
+
     //Use parameters and return types to allow the h1 tag to write welcome to a given class.
     // There should also be a specific message to the class sent in as a parameter.
-    
-    
+
+
     // <!DOCTYPE html>
     // <html>
     // <body>
@@ -74,12 +75,12 @@ public class CSharpMethodsAndGit
     // </main>
     // </body>
     // </html>
-    
-    
+
+
     // Now we want to be able to send different messages.
     // Allow this by implementing a function which takes in a number of messages.
     // The function then writes them out, one after the other.
-    
+
     // <!DOCTYPE html>
     // <html>
     // <body>
@@ -92,32 +93,65 @@ public class CSharpMethodsAndGit
     // </main>
     // </body>
     // </html>
-    
-    private string WelcomeMessage(string greeting = "Välkomna", string className = "klassen")
-    {
-        return $"{greeting} {className}";
-    }
-    private string[] CourseMessages(string firstMsg="Mer info kommer", string secondMsg="Mer info kommer")
-    {
-        return new[]{firstMsg, secondMsg};
-    }
-    public string HTMLStructure()
-    {
-       string htmlOutput = 
-           "<!DOCTYPE html>" +
-            "<html>" +
-            "<body>" +
-            $"<h1>{WelcomeMessage()}!</h1>" +
-            $"<p><b>Meddelande 1:</b> {CourseMessages()[0]}.</p>" +
-            $"<p><b>Meddelande 2:</b> {CourseMessages(secondMsg:"Möte klockan 10")[1]}.</p>" +
-            "<main>" +
-            "<p>Kurs om C#</p>" +
-            "<p>Kurs om Databaser</p>" +
-            "</main>" +
-            "</body>" +
-            "</html>";
-       return htmlOutput;
-    }
 
- 
+
+    // Exercise html implementation
+    // private string WelcomeMessage(string greeting = "Välkomna", string className = "klassen")
+    // {
+    //     return $"{greeting} {className}";
+    // }
+    // private string[] CourseMessages(string firstMsg="Mer info kommer", string secondMsg="Mer info kommer")
+    // {
+    //     return new[]{firstMsg, secondMsg};
+    // }
+    // public string HTMLStructure()
+    // {
+    //    string htmlOutput = 
+    //        "<!DOCTYPE html>" +
+    //         "<html>" +
+    //         "<body>" +
+    //         $"<h1>{WelcomeMessage()}!</h1>" +
+    //         $"<p><b>Meddelande 1:</b> {CourseMessages()[0]}.</p>" +
+    //         $"<p><b>Meddelande 2:</b> {CourseMessages(secondMsg:"Möte klockan 10")[1]}.</p>" +
+    //         "<main>" +
+    //         "<p>Kurs om C#</p>" +
+    //         "<p>Kurs om Databaser</p>" +
+    //         "</main>" +
+    //         "</body>" +
+    //         "</html>";
+    //    return htmlOutput;
+    // }
+
+
+    //Custom HTML implementation
+    private string ReturnMessage(string klassNamn)
+    {
+        return klassNamn;
+    }
+    private string[] ReturnMessage(string[] meddelande)
+    {
+        return meddelande;
+    }
+    public string GenerateHTMLTemplate(string klassNamn="klassen", string meddelande="Mer info kommer")
+    {
+        string htmlOutput =
+            @$"
+            <!DOCTYPE html>
+            <html>
+            <body>
+            <h1>Välkomna {klassNamn}!</h1>
+            <p><b>Meddelande 1:</b> {meddelande}.</p>
+            <p><b>Meddelande 2:</b> {meddelande}.</p>
+            <main>
+            <p>Kurs om C#</p>
+            <p>Kurs om Databaser</p>
+            </main>
+            </body>
+            </html>";
+        return htmlOutput;
+    }
+    private void OutputToFile(string outputText)
+    {
+        
+    }
 }
