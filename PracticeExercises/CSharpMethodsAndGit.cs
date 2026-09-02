@@ -75,17 +75,49 @@ public class CSharpMethodsAndGit
     // </body>
     // </html>
     
-    public void HTMLStructure(string welcomeMessage="Välkomna!", string courseOne="C#", string courseTwo="Databaser")
+    
+    // Now we want to be able to send different messages.
+    // Allow this by implementing a function which takes in a number of messages.
+    // The function then writes them out, one after the other.
+    
+    // <!DOCTYPE html>
+    // <html>
+    // <body>
+    // <h1>Välkomna KLASSNAMN-HÄR!</h1>
+    // <p><b>Meddelande 1:</b> Klasspecifikt meddelande här.</p>
+    // <p><b>Meddelande 2:</b> Klasspecifikt meddelande här.</p>
+    // <main>
+    // <p>Kurs om C#</p>
+    // <p>Kurs om Databaser</p>
+    // </main>
+    // </body>
+    // </html>
+    
+    private string WelcomeMessage(string greeting = "Välkomna", string className = "klassen")
     {
-        Console.WriteLine("<!DOCTYPE html>\n"+
-                          "<html>\n"+
-                          "<body>\n"+
-                          $"<h1>{welcomeMessage}<h1/>\n"+
-                          "<main>\n"+
-                          $"<p>Kurs om {courseOne}</p>\n"+
-                          $"<p>{courseTwo}</p>\n"+
-                          "</main>\n"+
-                          "</body>\n"+
-                          "</html>");
+        return $"{greeting} {className}";
     }
+    private string[] CourseMessages(string firstMsg="Mer info kommer", string secondMsg="Mer info kommer")
+    {
+        return new[]{firstMsg, secondMsg};
+    }
+    public string HTMLStructure()
+    {
+       string htmlOutput = 
+           "<!DOCTYPE html>" +
+            "<html>" +
+            "<body>" +
+            $"<h1>{WelcomeMessage()}!</h1>" +
+            $"<p><b>Meddelande 1:</b> {CourseMessages()[0]}.</p>" +
+            $"<p><b>Meddelande 2:</b> {CourseMessages(secondMsg:"Möte klockan 10")[1]}.</p>" +
+            "<main>" +
+            "<p>Kurs om C#</p>" +
+            "<p>Kurs om Databaser</p>" +
+            "</main>" +
+            "</body>" +
+            "</html>";
+       return htmlOutput;
+    }
+
+ 
 }
