@@ -5,54 +5,85 @@ class Program
     static void Main(string[] args)
     {
         Console.ForegroundColor = ConsoleColor.Green;
-        
-        //Ange klassnamn som ett string argument i första parametern.
-        //Ange ett string array block ["","",""...] i den andra parametern.
-        Console.WriteLine(GenerateHTMLTemplate("Klassnamn",["Meddelande ett","Meddelande två"]));
-        
+        OutputCarInfo();
         Console.ForegroundColor = ConsoleColor.White;
     }
-    private static string DefaultName(string klassNamn="klassen")
+    private static void OutputCarInfo()
     {
-        return klassNamn;
-    }
-    private static string[] DefaultMessage(string[] meddelanden, int antalMeddelanden)
-    {
-        // Om användaren anger färre meddelanden än vad som efterfrågas.
-        if (meddelanden.Length < antalMeddelanden)
+        CarOwner owner = new CarOwner();
+        Car[] ownedCars = owner.ReturnOwnedCars(2);
+        ownedCars[1].DefineCar("Volvo",112);
+        Console.WriteLine($"{owner.Name} owns {ownedCars.Length} cars.");
+        foreach (Car car in ownedCars)
         {
-            //Kopiera användarens möjliga angivna värden (som finns i meddelanden arrayen) till en större array
-            string[] störreArray = new String[antalMeddelanden];
-            meddelanden.CopyTo(störreArray, 0);
-            
-            for (int i = 0; i < antalMeddelanden; i++)
-            {
-                // Om värdet på index i är tomt (null), tilldela default värde "Mer info tillkommer" 
-                störreArray[i] ??= "Mer info tillkommer";
-            }
-            // Returnera den större arrayen.
-            return störreArray;
+            Console.WriteLine($"Model: {car.Model}. Top speed: {car.TopSpeedKmh} Km/h");
         }
+    }
+}
 
-        return meddelanden;
-    }
-    private static string GenerateHTMLTemplate(string klassNamn, string[] klassMeddelanden)
+
+// Create class holding a static method,
+class FryingPan()
+{
+    public static string brand = "Lodge";
+    public static string material = "Cast-iron";
+    public static int inches = 8;
+
+    public static string GetPanInfo()
     {
-        string[] korrMeddelanden = DefaultMessage(klassMeddelanden,3);
-        string htmlOutput =
-            @$"<!DOCTYPE html>
-<html>
-<body>
-    <h1>Välkomna {DefaultName(klassNamn)}!</h1>
-    <p><b>Meddelande 1:</b> {korrMeddelanden[0]}.</p>
-    <p><b>Meddelande 2:</b> {korrMeddelanden[1]}.</p>
-    <p><b>Meddelande 3:</b> {korrMeddelanden[2]}.</p>
-    <main>
-        <p>Kurs om C#</p>
-        <p>Kurs om Databaser</p>
-    </main>
-</body>
-</html>";
-        return htmlOutput;
+        return $"This is a {brand} pan. It is made of {material} " +
+               $"and is {inches} inches.";
     }
+}
+
+// Exercise OOP - Car
+class Car()
+{
+    //Create field/properties, i.e. maxSpeed, currentSpeed
+    public string Model = "BMW";
+    public int Mileage = 0;
+    public int CurrentSpeedKmh = 0;
+    public int TopSpeedKmh = 250;
+    
+    // Create methods, i.e. GoFaster() and GoSlower()
+    public void GoFaster()
+    {
+        if(CurrentSpeedKmh == 0) Console.WriteLine($"{this.Model} is starting!");
+        if (CurrentSpeedKmh < TopSpeedKmh)
+        {
+            CurrentSpeedKmh++;
+        }
+        if(CurrentSpeedKmh == TopSpeedKmh) Console.WriteLine($"{this.Model} top speed hit!");
+        
+    }
+    public void GoSlower()
+    {
+        if (CurrentSpeedKmh > 0)
+        {
+            CurrentSpeedKmh--;
+        }
+        if(CurrentSpeedKmh == 0) Console.WriteLine($"{this.Model} is stopping!");
+    }
+    public void DefineCar(string model, int topSpeed)
+    {
+        this.Model = model;
+        this.TopSpeedKmh = topSpeed;
+    }
+}
+
+// Create the class CarOwner. TODO: PDF Exercises. Cont at OOP Website Generator
+class CarOwner()
+{
+    public string Name = "John";
+    public Car[] ReturnOwnedCars(int ownedCars)
+    {
+        Car[] cars = new Car[ownedCars];
+        for (int i = 0; i < ownedCars; i++)
+        {
+            cars[i] = new Car();
+        }
+        return cars;
+    }
+    
+    
 }

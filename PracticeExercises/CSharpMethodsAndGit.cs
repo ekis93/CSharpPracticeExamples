@@ -2,6 +2,7 @@ using System.Reflection;
 
 namespace PracticeExercises;
 
+//Main class for the PDF exercises
 public class CSharpMethodsAndGit
 {
     //Exercise - Add two numbers (Addera två tal):
@@ -124,34 +125,49 @@ public class CSharpMethodsAndGit
 
 
     //Custom HTML implementation
-    private string ReturnMessage(string klassNamn)
+    private string DefaultName(string klassNamn="klassen")
     {
         return klassNamn;
     }
-    private string[] ReturnMessage(string[] meddelande)
+    private string[] DefaultMessage(string[] meddelanden, int antalMeddelanden)
     {
-        return meddelande;
+        // Om användaren anger färre meddelanden än vad som efterfrågas.
+        if (meddelanden.Length < antalMeddelanden)
+        {
+            //Kopiera användarens möjliga angivna värden (som finns i meddelanden arrayen) till en större array
+            string[] störreArray = new String[antalMeddelanden];
+            meddelanden.CopyTo(störreArray, 0);
+            
+            for (int i = 0; i < antalMeddelanden; i++)
+            {
+                // Om värdet på index i är tomt (null), tilldela default värde "Mer info tillkommer" 
+                störreArray[i] ??= "Mer info tillkommer";
+            }
+            // Returnera den större arrayen.
+            return störreArray;
+        }
+
+        return meddelanden;
     }
-    public string GenerateHTMLTemplate(string klassNamn="klassen", string meddelande="Mer info kommer")
+    public string GenerateHTMLTemplate(string klassNamn, string[] klassMeddelanden)
     {
+        string[] korrMeddelanden = DefaultMessage(klassMeddelanden,3);
         string htmlOutput =
-            @$"
-            <!DOCTYPE html>
-            <html>
-            <body>
-            <h1>Välkomna {klassNamn}!</h1>
-            <p><b>Meddelande 1:</b> {meddelande}.</p>
-            <p><b>Meddelande 2:</b> {meddelande}.</p>
-            <main>
-            <p>Kurs om C#</p>
-            <p>Kurs om Databaser</p>
-            </main>
-            </body>
-            </html>";
+            @$"<!DOCTYPE html>
+<html>
+<body>
+    <h1>Välkomna {DefaultName(klassNamn)}!</h1>
+    <p><b>Meddelande 1:</b> {korrMeddelanden[0]}.</p>
+    <p><b>Meddelande 2:</b> {korrMeddelanden[1]}.</p>
+    <p><b>Meddelande 3:</b> {korrMeddelanden[2]}.</p>
+    <main>
+        <p>Kurs om C#</p>
+        <p>Kurs om Databaser</p>
+    </main>
+</body>
+</html>";
         return htmlOutput;
     }
-    private void OutputToFile(string outputText)
-    {
-        
-    }
 }
+
+//Class-Specific exercisese
