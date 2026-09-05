@@ -7,13 +7,12 @@ public class CSharpMethodsAndGit
 {
     //Exercise - Add two numbers (Addera två tal):
     //Create a method which takes in two numbers, adds these, and writes out the result.
+    //Create a method which takes in two numbers, multiplies them, and outputs the result.
     public void AddTwoNumbers(int num1, int num2)
     {
         int sum = num1 + num2;
         Console.WriteLine(sum);
     }
-
-    //Create a method which takes in two numbers, multiplies them, and outputs the result.
     public void MultiplyTwoNumbers(int num1, int num2)
     {
         int product = num1 * num2;
@@ -47,7 +46,6 @@ public class CSharpMethodsAndGit
     //Exercise - Websitegenerator (Hemsidegenerator):
     // You have been assigned to standardize the creation of an HTML generator in C#.
 
-
     // Create methods to preform chosen parts of the creation of the following code:
     // <!DOCTYPE html>
     // <html>
@@ -59,12 +57,10 @@ public class CSharpMethodsAndGit
     // </main>
     // </body>
     // </html>
-
-
+    
     //Use parameters and return types to allow the h1 tag to write welcome to a given class.
     // There should also be a specific message to the class sent in as a parameter.
-
-
+    
     // <!DOCTYPE html>
     // <html>
     // <body>
@@ -76,7 +72,6 @@ public class CSharpMethodsAndGit
     // </main>
     // </body>
     // </html>
-
 
     // Now we want to be able to send different messages.
     // Allow this by implementing a function which takes in a number of messages.
@@ -94,36 +89,7 @@ public class CSharpMethodsAndGit
     // </main>
     // </body>
     // </html>
-
-
-    // Exercise html implementation
-    // private string WelcomeMessage(string greeting = "Välkomna", string className = "klassen")
-    // {
-    //     return $"{greeting} {className}";
-    // }
-    // private string[] CourseMessages(string firstMsg="Mer info kommer", string secondMsg="Mer info kommer")
-    // {
-    //     return new[]{firstMsg, secondMsg};
-    // }
-    // public string HTMLStructure()
-    // {
-    //    string htmlOutput = 
-    //        "<!DOCTYPE html>" +
-    //         "<html>" +
-    //         "<body>" +
-    //         $"<h1>{WelcomeMessage()}!</h1>" +
-    //         $"<p><b>Meddelande 1:</b> {CourseMessages()[0]}.</p>" +
-    //         $"<p><b>Meddelande 2:</b> {CourseMessages(secondMsg:"Möte klockan 10")[1]}.</p>" +
-    //         "<main>" +
-    //         "<p>Kurs om C#</p>" +
-    //         "<p>Kurs om Databaser</p>" +
-    //         "</main>" +
-    //         "</body>" +
-    //         "</html>";
-    //    return htmlOutput;
-    // }
-
-
+    
     //Custom HTML implementation
     private string DefaultName(string klassNamn="klassen")
     {
@@ -169,5 +135,3 @@ public class CSharpMethodsAndGit
         return htmlOutput;
     }
 }
-
-//Class-Specific exercisese
