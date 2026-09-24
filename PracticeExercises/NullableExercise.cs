@@ -51,7 +51,53 @@ public class UserInputAndNullability
     }
 }
 
-public class NullableTypesAndOwnClasses
+//NullableTypesAndOwnClasses
+
+
+//Create the following class:
+// public class Person
+// {
+//     public string Name { get; set; } = "";
+//     public int? Age { get; set; }
+//     public string? Email { get; set; }
+// }
+//DONE
+
+
+//Create three people with different names (see program.CS)
+//One person is missing an age.
+//One person is missing an Email.
+//One person has both an age and an Email.
+//DONE
+
+
+//Write out name, age and Email for each person.
+//If age is missing, write out "Age unknown";
+//If Email is missing, write out "No Email"
+//Use ?? where appropriate
+//DONE
+
+
+//IN DEPTH
+//Create a method PrintPerson which can receive a Person
+
+public class Person
 {
-    
+    public string Name { get; set; } = "";
+    public int? Age { get; set; }
+    public string? Email { get; set; }
+
+    public void GetPersonInfo()
+    {
+        string ageString = Age?.ToString() ?? "Unknown Age";
+        Email ??= "No Email";
+        Console.ForegroundColor = ConsoleColor.Green;
+        Console.WriteLine($"\nName: {Name}\nAge: {ageString}\nEmail: {Email}\n");
+        Console.ForegroundColor = ConsoleColor.White;
+    }
+
+    public void PrintPerson()
+    {
+        
+    }
 }
