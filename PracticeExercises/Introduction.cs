@@ -11,10 +11,10 @@ public class Introduction
     public void Greetings()
     {
         Console.WriteLine("Hi user! Please provide me with your name:");
-        string myName = Console.ReadLine();
+        string? myName = Console.ReadLine();
         Console.WriteLine($"\nHello, {myName}\n");
         Console.WriteLine("\nHow old are you?");
-        int myAge = int.Parse(Console.ReadLine());
+        int myAge = int.Parse(Console.ReadLine() ?? "0");
         Console.WriteLine($"\nSo you're {myAge} years old? Neat!");
         
         //In-depth (Fördjupning)

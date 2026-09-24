@@ -178,7 +178,6 @@ public class CSharpBasics
                 // https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/builtin-types/oating-point-numeric-types
         
         // Solution:
-        float decilitersOfFlour = 5.5f;
         // When assigning a value to a variable of type float, we must suffix the value with the char 'f'.
         // We must also use a point (.) instead of a comma (,).
         // By default, the compiler automatically recognizes 5.5 as a double.

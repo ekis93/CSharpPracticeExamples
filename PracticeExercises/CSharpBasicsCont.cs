@@ -96,8 +96,6 @@ class CSharpBasicsCont()
         // For example a collection of ints (whole numbers).
         // An array in C# is created by writing (observe the brackets!):
         // type[] arrayName;
-        string[] cars;
-        int[] numbers;
 
         // Array - Example
         string[] otherCars = { "Volvo", "BMW", "Ford", "Mazda" };
@@ -177,7 +175,7 @@ class CSharpBasicsCont()
         Console.WriteLine("Guess a number between 1 and 10");
         Random random = new Random();
         int correctNumber = random.Next(1, 10);
-        int guessNumber = int.Parse(Console.ReadLine());
+        int guessNumber = int.Parse(Console.ReadLine() ?? "0");
 
         if (guessNumber == correctNumber)
         {
@@ -195,7 +193,7 @@ class CSharpBasicsCont()
     public void LoopUserInput()
     {
         Console.WriteLine("Please provide a whole number:");
-        int inputNumber = int.Parse(Console.ReadLine());
+        int inputNumber = int.Parse(Console.ReadLine() ?? "0");
         if (inputNumber <= 0)
         {
             Console.WriteLine("Please provide a number greater than 0!");
@@ -225,7 +223,7 @@ class CSharpBasicsCont()
         while (true)
         {
             guesses--;
-            int guessedNumber = int.Parse(Console.ReadLine());
+            int guessedNumber = int.Parse(Console.ReadLine() ?? "0");
             if (guessedNumber == correctNumber)
             {
                 Console.WriteLine("Congratulations! You guessed right.");
@@ -259,12 +257,12 @@ class CSharpBasicsCont()
     {
         // I:1, V:5, X:10, L:50, C:100, D:500, M:1000
         //example: MMVI = 1000+1000+5+1 = 2006
-        string numberStringInput = Console.ReadLine();
+        string numberStringInput = Console.ReadLine() ?? "";
         int numberLength = numberStringInput.Length;
-        int numberPlace;
-        double zeroPlace;
-        int charToInt;
-        int singleNumberValue;
+        int numberPlace = 0;
+        double zeroPlace = 0.0;
+        int charToInt = 0;
+        int singleNumberValue = 0;
         string numerals = "";
 
         for (int i = 0; i < numberLength; i++)

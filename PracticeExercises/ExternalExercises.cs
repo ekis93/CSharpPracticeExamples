@@ -71,7 +71,7 @@ public class ExternalExercises
         // The Average is : 5.100000
 
         Console.WriteLine("Please provide n numbers separated by space:");
-        string[] separatedInput = Console.ReadLine().Split(' ');
+        string[] separatedInput = Console.ReadLine()?.Split(' ') ?? Array.Empty<string>();
         int inputLength = separatedInput.Length;
         double[] numbers = new double[inputLength];
 
@@ -105,7 +105,7 @@ public class ExternalExercises
         // Number is : 4 and cube of the 4 is :64
         // Number is : 5 and cube of the 5 is :125
         Console.WriteLine("Please provide a couple of numbers, separated by whitespace.");
-        string[] userInput = Console.ReadLine().Split(' ');
+        string[] userInput = Console.ReadLine()?.Split(' ') ?? Array.Empty<string>();
         int number = 0;
         foreach (string numberText in userInput)
         {
@@ -126,7 +126,7 @@ public class ExternalExercises
         // ...
         // 15 X 10 = 150
         Console.WriteLine("Input the number (Table to be calculated):");
-        int userInputNumber = int.Parse(Console.ReadLine());
+        int userInputNumber = int.Parse(Console.ReadLine() ?? "0");
         for (int i = 1; i <= 10; i++)
         {
             Console.WriteLine($"{userInputNumber} X {i} = {userInputNumber * i}");
@@ -151,7 +151,7 @@ public class ExternalExercises
         // 1x2=2, 2z2=4, 3x2=6
         // etc.
         Console.WriteLine("Input n numbers to the console (separated by whitespace):");
-        string[] userInput = Console.ReadLine().Split(' ');
+        string[] userInput = Console.ReadLine()?.Split(' ') ?? Array.Empty<string>();
         string tableOutput = "";
         int number = 0;
         foreach (string numberText in userInput)
@@ -176,7 +176,7 @@ public class ExternalExercises
         // The odd numbers are :1 3 5 7 9 11 13 15 17 19
         // The Sum of odd Natural Number upto 10 terms : 100 
         Console.WriteLine("Input number of terms to the console (in the form of a single int):");
-        int userInput = int.Parse(Console.ReadLine());
+        int userInput = int.Parse(Console.ReadLine() ?? "0");
         string consoleOutput = "";
         int sum = 0;
 
