@@ -4,8 +4,8 @@ class Program
 {
     static void Main(string[] args)
     {
-        ErrorHandlingExercise ex = new ErrorHandlingExercise();
-        Console.WriteLine(ex.DivideNumbers(10,0));
+        UserInputAndNullability ex = new UserInputAndNullability();
+        ex.GetStrLength();
     }
 }
 
