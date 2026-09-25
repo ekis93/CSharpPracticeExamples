@@ -1,0 +1,14 @@
+A stacktrace give details regarding where an exception occured in the code.
+* Logging can be used to write the exception information to logfiles for troubleshooting later.
+For instance, there is a 'message' property which can describe your error.
+
+try
+{
+    int divisor = 0;
+    int result = 10 / divisor;
+}
+catch (Exception ex)
+{
+    Console.WriteLine(ex.Message);
+    Console.WriteLine(ex.StackTrace);
+}

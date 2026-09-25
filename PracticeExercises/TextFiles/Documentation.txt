@@ -1,0 +1,11 @@
+Example:
+/// <summary>
+/// Writes the <see cref="Name"/>, <see cref="Age"/>, and <see cref="Email"/> of the Person instance to the console.
+/// </summary>
+
+<summary>...</summary>: 
+Shows a summary that the user can read wherever the method is used.
+
+<see cref="..."/>:
+Allows the user to click the type or member specified in cref to see the definition.
+
