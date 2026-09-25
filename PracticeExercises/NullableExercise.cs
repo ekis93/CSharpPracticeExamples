@@ -1,5 +1,6 @@
-namespace PracticeExercises;
+using System.Reflection.Metadata.Ecma335;
 
+namespace PracticeExercises;
 public class NullableExercise
 {
     public void UnderstandAndHandleNull()
@@ -18,7 +19,6 @@ public class NullableExercise
         Console.WriteLine(name?.Length ?? 0);
     }
 }
-
 public class UserInputAndNullability
 {
     //Activate nullable reference types and treat warnings as errors in the project file.
@@ -51,9 +51,7 @@ public class UserInputAndNullability
     }
 }
 
-//NullableTypesAndOwnClasses
-
-
+#region NullableTypesAndOwnClasses
 //Create the following class:
 // public class Person
 // {
@@ -80,14 +78,28 @@ public class UserInputAndNullability
 
 //IN DEPTH
 //Create a method PrintPerson which can receive a Person
+//If the person is null, write out "No person given as param" and exit the method
+//else, write out the person's name.
+//Call the method once with a person object and once with a null.
+//DONE
 
+
+//Think about the difference between having a missing person vs having a person that is missing their age.
+//Answer: It would depend on the type of information you want to show to the user(s) and what information is required for applications implementing that data.
+//It could be that you are working with sensitive data where the person's age has restricted access.
+//You could also be developing a database where the person's age is a required field for a form related to that database.
+//Generally speaking it is easier to just check if the Person object is null, instead of examining if each property is null or empty.
+#endregion NullableTypesAndOwnClasses
 public class Person
 {
     public string Name { get; set; } = "";
     public int? Age { get; set; }
     public string? Email { get; set; }
 
-    public void GetPersonInfo()
+    /// <summary>
+    /// Writes the <see cref="Name"/>, <see cref="Age"/>, and <see cref="Email"/> of the Person instance to the console.
+    /// </summary>
+    public void PrintPersonInfo()
     {
         Email ??= "No Email";
         Console.ForegroundColor = ConsoleColor.Green;
@@ -98,8 +110,19 @@ public class Person
         Console.ForegroundColor = ConsoleColor.White;
     }
 
-    public void PrintPerson()
+    /// <summary>
+    /// Outputs the <see cref="Name"/> of the specified Person to the console.
+    /// </summary>
+    /// <param name="person">The person whose name to write.</param>
+    public void PrintPersonName(Person? person)
     {
-        
+        if (person is null)
+        {
+            Console.ForegroundColor = ConsoleColor.Red;
+            Console.WriteLine($"No person given as param!");
+            Console.ForegroundColor = ConsoleColor.White;
+            return;
+        }
+        Console.WriteLine($"Name: {person.Name}");
     }
 }
