@@ -89,10 +89,12 @@ public class Person
 
     public void GetPersonInfo()
     {
-        string ageString = Age?.ToString() ?? "Unknown Age";
         Email ??= "No Email";
         Console.ForegroundColor = ConsoleColor.Green;
-        Console.WriteLine($"\nName: {Name}\nAge: {ageString}\nEmail: {Email}\n");
+        Console.WriteLine(
+            $"Name: {Name}\n" +
+            $"Age: {Age?.ToString() ?? "Unknown Age"}\n" +
+            $"Email: {Email ??= "No Email"}\n");
         Console.ForegroundColor = ConsoleColor.White;
     }
 

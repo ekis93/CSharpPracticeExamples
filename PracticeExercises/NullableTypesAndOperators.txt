@@ -1,0 +1,11 @@
+*Null-conditional operator (?.)
+*Null-coalescing operator (??)
+*Nullable value type (T?)
+
+private int? nullableInt {get; set; }
+...
+string text = nullableInt?.ToString() ?? "someText";
+
+nullableInt?. evaluates if the variable has an integer value or null assigned.
+Integer value: The method after . is called and the return value is assigned to the text variable.
+null value: The value after ?? gets assigned directly to the text variable. The method after . never gets called.
