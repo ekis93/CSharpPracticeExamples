@@ -1,0 +1,10 @@
+Verbatim text - @ in variables, attributes, and string literals
+See link for all uses: https://learn.microsoft.com/en-us/dotnet/csharp/language-reference/tokens/verbatim
+
+Example:
+@"
+some text
+    some indented text
+some other text";
+
+Will be output as shown to the console.

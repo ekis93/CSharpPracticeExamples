@@ -4,8 +4,8 @@ class Program
 {
     static void Main(string[] args)
     {
-        ErrorHandlingExercise ex = new ErrorHandlingExercise();
-        ex.DivideNumbers();
+        LoginMenuExercise ex = new LoginMenuExercise();
+        ex.StartMenu();
     }
 }
 
