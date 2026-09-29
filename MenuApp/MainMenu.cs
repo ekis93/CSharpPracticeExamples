@@ -11,6 +11,10 @@ public class MainMenu
         PromptUser();
     }
     
+    /// <summary>
+    /// Displays the given menu layout.
+    /// </summary>
+    /// <param name="menuLayout">The menu layout to be shown in the console window.</param>
     private void DisplayMenu(string menuLayout)
     {
         Console.ForegroundColor = ConsoleColor.Green;
@@ -19,6 +23,9 @@ public class MainMenu
         Console.ResetColor();
     }
     
+    /// <summary>
+    /// Registers and validates the user's console input.
+    /// </summary>
     private void PromptUser()
     {
         bool keepPrompting = true;
@@ -49,16 +56,20 @@ public class MainMenu
             {
                 
                 // Log in
-                case 0: Console.WriteLine($"TODO: Implement {choiceArray[0]} menu");
-                    break;
+                case 0: Console.Clear(); 
+                    Console.WriteLine($"TODO: Implement {choiceArray[0]} menu");
+                    goto default;
+                    
                 // Register
-                case 1: Console.WriteLine($"TODO: Implement {choiceArray[1]} menu");
-                    Console.WriteLine("Please provide a birth year.");
-                    break;
+                case 1: Console.Clear(); 
+                    Console.WriteLine($"TODO: Implement {choiceArray[1]} menu");
+                    //Console.WriteLine("Please provide a birth year.");
+                    goto default;
+                    
                 // Exit
                 case 2:
-                    Console.WriteLine($"Are you sure you want to exit?\n(y/n)");
-                    if (Console.ReadKey().KeyChar == 'y') { keepPrompting = false;  Console.Clear(); } 
+                    Console.WriteLine($"Are you sure you want to exit?\n(y / any other key)");
+                    if (Console.ReadKey().KeyChar == 'y') { keepPrompting = false;} 
                     else
                     {
                         Console.Clear();
@@ -66,7 +77,8 @@ public class MainMenu
                         goto default;
                     }
                     break;
-                default: DisplayMenu(MainMenuLayout);
+                default: 
+                    DisplayMenu(MainMenuLayout);
                     break;
             }
         }
