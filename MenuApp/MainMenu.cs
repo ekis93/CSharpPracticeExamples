@@ -1,26 +1,35 @@
+using System.Diagnostics;
+
 namespace MenuApp;
 
+//TODO: Decouple the logic for showing the menu from the MainMenu class.
 public class MainMenu
 {
-    private string MainMenuLayout { get; set; } = "";
+    readonly BuildMenuLayout _mainMenuLayout = new BuildMenuLayout("Main Menu");
+    readonly BuildMenuLayout _exitMenuLayout = new BuildMenuLayout("Are you sure you want to exit?");
+    private bool _keepRunning = true;
     public void Start()
     {
-        MenuLayout layout = new MenuLayout();
-        MainMenuLayout = layout.ReturnMainMenuLayout();
-        DisplayMenu(MainMenuLayout);
-        PromptUser();
+        _mainMenuLayout.AddMenuItem('1',"Login.");
+        _mainMenuLayout.AddMenuItem('2',"Register new user.");
+        _mainMenuLayout.AddMenuItem('3',"Exit.");
+        
+        _exitMenuLayout.AddMenuItem('y',"Exit");
+        _exitMenuLayout.AddMenuItem('n',"Return");
+        
+        while (_keepRunning)
+        {
+            DisplayMenu(_mainMenuLayout);
+            PromptUser();
+        }
     }
-    
     /// <summary>
     /// Displays the given menu layout.
     /// </summary>
     /// <param name="menuLayout">The menu layout to be shown in the console window.</param>
-    private void DisplayMenu(string menuLayout)
+    private void DisplayMenu(BuildMenuLayout menuLayout)
     {
-        Console.ForegroundColor = ConsoleColor.Green;
         Console.WriteLine(menuLayout);
-        Console.WriteLine("Please pick an option from the list.");
-        Console.ResetColor();
     }
     
     /// <summary>
@@ -28,59 +37,42 @@ public class MainMenu
     /// </summary>
     private void PromptUser()
     {
-        bool keepPrompting = true;
-        while (keepPrompting)
+        char userInput = Console.ReadKey().KeyChar;
+        string[] choiceArray = ["Log in","Register new user","Exit"];
+        try
         {
-            char userInput = Console.ReadKey().KeyChar;
-            int? choiceIndex = null;
-            string[] choiceArray = ["Log in","Register new user","Exit"];
-            
-            try
-            {
-                Console.Clear();
-                choiceIndex = Int32.Parse(userInput.ToString())-1;
-                Console.ForegroundColor = ConsoleColor.Green;
-                Console.WriteLine($"\nUser picked {choiceArray[(int)choiceIndex]}");
-                Console.ResetColor();
-            }
-            catch (Exception e)when(e is FormatException or IndexOutOfRangeException) 
-            {
-                Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine($"\nINVALID INPUT!");
-                Console.ResetColor();
-            }
-            //DEBUG
-            Console.WriteLine("Input: " + userInput);
-            //
+            Console.Clear();
+            int? choiceIndex = Int32.Parse(userInput.ToString()) - 1;
             switch (choiceIndex)
             {
                 
                 // Log in
-                case 0: Console.Clear(); 
-                    Console.WriteLine($"TODO: Implement {choiceArray[0]} menu");
-                    goto default;
-                    
+                case 0:
+                    throw new NotImplementedException($"'{choiceArray[0]}' is not implemented yet");
                 // Register
-                case 1: Console.Clear(); 
-                    Console.WriteLine($"TODO: Implement {choiceArray[1]} menu");
-                    //Console.WriteLine("Please provide a birth year.");
-                    goto default;
-                    
+                case 1:
+                    throw new NotImplementedException($"'{choiceArray[1]}' is not implemented yet");
                 // Exit
                 case 2:
-                    Console.WriteLine($"Are you sure you want to exit?\n(y / any other key)");
-                    if (Console.ReadKey().KeyChar == 'y') { keepPrompting = false;} 
-                    else
+                    DisplayMenu(_exitMenuLayout);
+                    if (Console.ReadKey().KeyChar == 'y')
                     {
-                        Console.Clear();
-                        Console.WriteLine("\nReturn to Main Menu");
-                        goto default;
+                        _keepRunning = false;
                     }
                     break;
-                default: 
-                    DisplayMenu(MainMenuLayout);
-                    break;
             }
+        }
+        catch (Exception e)when (e is FormatException or IndexOutOfRangeException)
+        {
+            //DEBUG
+            Debug.WriteLine("Input: " + userInput);
+            Debug.WriteLine($"\nINVALID INPUT!");
+            //
+        }
+        catch (NotImplementedException e)
+        {
+            Console.WriteLine(e.Message);
+            Console.WriteLine("That menu item is not implemented yet");
         }
     }
 }
